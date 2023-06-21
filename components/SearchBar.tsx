@@ -23,7 +23,7 @@ const SearchBar = () => {
   const [model, setModel] = useState('');
   const router = useRouter();
 
-  const handlSearch = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSearch = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (manufacturer === '' && model === '') {
       return alert('Please fill in the search bar');
@@ -54,7 +54,7 @@ const SearchBar = () => {
   };
 
   return (
-    <form className="searchbar" onSubmit={handlSearch}>
+    <form className="searchbar" onSubmit={handleSearch}>
       <div className="searchbar__item">
         <SearchManufacturer
           manufacturer={manufacturer}
