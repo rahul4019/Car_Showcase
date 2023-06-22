@@ -2,11 +2,9 @@
 
 import Image from 'next/image';
 import React, { Fragment, useState } from 'react';
-import { useRouter } from 'next/navigation';
 import { Listbox, Transition } from '@headlessui/react';
 
 import { CustomFilterProps } from '@/types';
-import { updateSearchParams } from '@/utils';
 
 const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
   const [selected, setselected] = useState(options[0]); // State for storing the selected option
@@ -17,7 +15,6 @@ const CustomFilter = ({ title, options, setFilter }: CustomFilterProps) => {
         value={selected}
         onChange={(e) => {
           setselected(e);
-          setFilter(e.value);
         }}
       >
         <div className="realtive w-fit z-10">

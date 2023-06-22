@@ -45,8 +45,6 @@ export default function Home() {
     getCars();
   }, [fuel, manufacturer, model, limit, year]);
 
-  const isDataEmpty = !Array.isArray(allCars) || allCars.length < 1 || !allCars;
-
   return (
     <main className="overflow-hidden">
       <Hero />
@@ -76,14 +74,15 @@ export default function Home() {
             </div>
 
             {loading && (
-              <div className="mt-16 w-full flex-center">
+              <div className="mt-16 w-full flex-center flex-col">
                 <Image
-                  src="/loader.svg"
+                  src="/loader.png"
                   alt="loader"
                   width={50}
                   height={50}
                   className="object-contain"
                 />
+                <div>Loading...</div>
               </div>
             )}
 
@@ -96,7 +95,6 @@ export default function Home() {
         ) : (
           <div className="home__error-container">
             <h2 className="text-black text-xl font-bold">Oops, no results</h2>
-            <p>{allCars?.message}</p>
           </div>
         )}
       </div>
